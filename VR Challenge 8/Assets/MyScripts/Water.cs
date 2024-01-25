@@ -6,11 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Water : MonoBehaviour
 {
-    public Camera cam;
+
+    [SerializeField] private float amountPerSecounds = 1f;
+    //public Camera cam;
     public float WaterPowerToGive = 5;
     public float waterRange = 50;
     public ParticleSystem water;
     public AudioSource aud;
+    
 
     public XRController xrController;
     // Start is called before the first frame update
@@ -35,21 +38,16 @@ public class Water : MonoBehaviour
 
     private void WaterUse()
     {
-        RaycastHit hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, waterRange))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, waterRange)
+            && hit.collider.TryGetComponent(out Fire fire))
         {
-            Debug.Log(hit.transform.name);
-            Fire fireP = hit.transform.GetComponent<Fire>();
-
-            if (fireP != null )
+            
+            if (fire != null )
             {
-                fireP.FirePowerTake(WaterPowerToGive);
+                fire.TryTakeDownFirePower(amountPerSecounds * Time.deltaTime) ;
+                
             }
-
-
-
-
         }
     }
 }
