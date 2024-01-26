@@ -12,6 +12,7 @@ public class Fire : MonoBehaviour
     [SerializeField] private float timeLastWatered = 0;
     [SerializeField] private float regenDelay = 2.5f;
     [SerializeField] private float regenRate = .1f;
+    [SerializeField] private AudioSource aud;
 
     public ParticleSystem steam;
 
@@ -57,6 +58,7 @@ public class Fire : MonoBehaviour
         if (currentfirePower < 0.0f)
         {
             isFire = false;
+            aud.Stop();
             steam.Play();
             return true;
         }

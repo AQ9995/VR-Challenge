@@ -3,7 +3,17 @@ guid: e9517f23eb7d35249af63da60e067f30
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireTruck01
+    second: {fileID: 2100000, guid: 101bb74c19252a846a5cfc5e351d7e20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireTruck01Glass
+    second: {fileID: 2100000, guid: acf8ccba81d638b4588a315f7bc0d1f0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

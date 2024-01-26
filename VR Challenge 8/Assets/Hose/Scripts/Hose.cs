@@ -307,7 +307,7 @@ public class Hose : MonoBehaviour
             prevTransform = segment.transform;
         }
 
-        JoinSegment(endTransform, prevTransform, false, true);
+        JoinSegment(endTransform, prevTransform, true, true);
     }
 
     private void JoinSegment(Transform current, Transform connectedTransform, bool isKinetic = false, bool isCloseConnected = false)
