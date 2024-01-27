@@ -13,9 +13,14 @@ public class Closet : MonoBehaviour
     public Animator anim;
     public AudioSource aud;
 
+    public GameObject ArrowHint1;
+    public GameObject ArrowHint2;
+
     void Start()
     {
         massege.SetActive(false);
+        ArrowHint1.SetActive(true);
+        ArrowHint2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +31,7 @@ public class Closet : MonoBehaviour
         if (Vector3.Distance(transform.position,  xrController.transform.position) < radius )
         {
             massege.SetActive(true);
+            ArrowHint1.SetActive(false);
             Debug.Log("Change!!!");
 
             if (xrController.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool selectButtonValue) && selectButtonValue)
@@ -33,6 +39,8 @@ public class Closet : MonoBehaviour
                 anim.SetBool("Play", true);
                 aud.Play();
                 Debug.Log("Anim Played");
+                ArrowHint1.SetActive(false);
+                ArrowHint2.SetActive(true);
             }
         }
 

@@ -17,6 +17,8 @@ public class GetTheCar : MonoBehaviour
 
     public GameObject xrOrign;
     public GameObject car;
+
+    public GameObject ArrowHint2;
     void Start()
     {
         massege.SetActive(false);
@@ -34,6 +36,7 @@ public class GetTheCar : MonoBehaviour
         {
             massege.SetActive(true);
             Debug.Log("Change!!!");
+            ArrowHint2.SetActive(false);
 
             if (xrController.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool selectButtonValue) && selectButtonValue)
             {
@@ -41,6 +44,7 @@ public class GetTheCar : MonoBehaviour
                 aud.Play();
                 StartCoroutine(ArriveTOFire());
                 Debug.Log("Anim Played");
+                ArrowHint2.SetActive(false);
             }
         }
 
