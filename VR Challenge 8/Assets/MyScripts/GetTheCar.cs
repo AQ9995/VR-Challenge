@@ -60,8 +60,8 @@ public class GetTheCar : MonoBehaviour
 
         yield return new WaitForSeconds(time);
         car.transform.position  = new Vector3 (1.75f, -0.51f, 3.03f);
-        car.transform.Rotate(0, 49f, 0);
-        xrOrign.transform.position = new Vector3(7.04f, 1, 1.63f);
+        car.transform.Rotate(0, 228f, 0);
+        xrOrign.transform.position = new Vector3(7.04f, 0, 1.63f);
         xrOrign.transform.Rotate(0, 188.589f, 0);
     }
 }

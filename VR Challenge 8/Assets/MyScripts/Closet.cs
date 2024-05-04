@@ -15,12 +15,27 @@ public class Closet : MonoBehaviour
 
     public GameObject ArrowHint1;
     public GameObject ArrowHint2;
+   
+
+    public Material[] mat;
+
+   
+
+    public SkinnedMeshRenderer rendL;
+    public SkinnedMeshRenderer rendR; 
 
     void Start()
     {
         massege.SetActive(false);
         ArrowHint1.SetActive(true);
         ArrowHint2.SetActive(false);
+        rendL.enabled = true;
+        rendR.enabled = true;
+        rendL.sharedMaterial = mat[0];
+        rendR.sharedMaterial = mat[0];
+
+
+
     }
 
     // Update is called once per frame
@@ -39,6 +54,9 @@ public class Closet : MonoBehaviour
                 anim.SetBool("Play", true);
                 aud.Play();
                 Debug.Log("Anim Played");
+                //mat.color = Color.yellow;
+                rendL.sharedMaterial = mat[1];
+                rendR.sharedMaterial = mat[1];
                 ArrowHint1.SetActive(false);
                 ArrowHint2.SetActive(true);
             }
@@ -49,4 +67,6 @@ public class Closet : MonoBehaviour
             massege.SetActive(false);
         }
     }
+
+    
 }
